@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Access denied";
+}
+
+<header>
+    <h2 class="text-danger">@ViewData["Title"]</h2>
+    <p>You do not have access to this resource.</p>
+    @if (User.IsInRole("Admin"))
+    {
+        <h2>You can not access: <span class="text-success">@ViewData["ReturnUrl"]</span> because you are an <span class="text-danger">Admin!</span></h2>
+    }
+    @if (User.IsInRole("Teacher"))
+    {
+        <h2>You can not access: <span class="text-success">@ViewData["ReturnUrl"]</span> because you are a <span class="text-danger">Teacher!</span></h2>
+    }
+    @if (User.IsInRole("Student"))
+    {
+        <h2>You can not access: <span class="text-success">@ViewData["ReturnUrl"]</span> because you are a <span class="text-danger">Student!</span></h2>
+    }
+</header>
+
+
